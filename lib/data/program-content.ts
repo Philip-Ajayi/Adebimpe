@@ -16,14 +16,14 @@ import type {
    * Confirm the spelling before publication.
    */
   export const memorialIdentity = {
-    fullName: "Adebime Akande Lawal",
-    displayName: "Adebimpe",
-    birthDate: "13 January 1929",
-    birthDateISO: "1929-01-13",
-    entryIntoGloryDate: "21 September 2026",
-    entryIntoGloryDateISO: "2026-09-21",
-    burialDate: "5 November 2026",
-    burialDateISO: "2026-11-05",
+    fullName: "Bayo Emmanuel Adebimpe",
+    displayName: "Pa Adebimpe",
+    birthDate: "7 January 1951",
+    birthDateISO: "1951-01-07",
+    entryIntoGloryDate: "20 August 2026",
+    entryIntoGloryDateISO: "2026-08-20",
+    burialDate: "6 November 2026",
+    burialDateISO: "2026-11-06",
   };
   
   /**
@@ -431,44 +431,44 @@ import type {
   export const memories: MemoryPhoto[] = [
     {
       id: "memory-01",
-      src: "/images/memorial/celebration-portrait.jpg",
+      src: "/images/memorial/celebration-portrait.jpeg",
       alt: "Portrait selected for the celebration of life",
       caption: "A life remembered with love",
       featured: true,
     },
     {
       id: "memory-02",
-      src: "/images/memorial/memory-01.jpg",
+      src: "/images/memorial/memory-01.jpeg",
       alt: "Family memory photograph",
       caption: "Precious family moments",
     },
     {
       id: "memory-03",
-      src: "/images/memorial/memory-02.jpg",
+      src: "/images/memorial/memory-02.jpeg",
       alt: "Photograph from the family archive",
       caption: "A story told in photographs",
     },
     {
       id: "memory-04",
-      src: "/images/memorial/memory-03.jpg",
+      src: "/images/memorial/memory-03.jpeg",
       alt: "Another cherished memory",
       caption: "Together through the years",
     },
     {
       id: "memory-05",
-      src: "/images/memorial/memory-04.jpg",
+      src: "/images/memorial/memory-04.jpeg",
       alt: "Family and loved ones",
       caption: "The people who made life beautiful",
     },
     {
       id: "memory-06",
-      src: "/images/memorial/memory-05.jpg",
+      src: "/images/memorial/memory-05.jpeg",
       alt: "A treasured moment",
       caption: "Held close in our hearts",
     },
     {
       id: "memory-07",
-      src: "/images/memorial/memory-06.jpg",
+      src: "/images/memorial/memory-06.jpeg",
       alt: "A further photograph from the archive",
       caption: "A legacy of love",
     },
@@ -476,8 +476,8 @@ import type {
   
   export const memorial: CelebrationOfLifeProfile = {
     ...memorialIdentity,
-    heroPortraitUrl: "/images/memorial/celebration-portrait.jpg",
-    closingPortraitUrl: "/images/memorial/closing-portrait.jpg",
+    heroPortraitUrl: "/images/memorial/celebration-portrait.jpeg",
+    closingPortraitUrl: "/images/memorial/closing-portrait.jpeg",
     familyThankYouMessage:
       "With grateful hearts, the family thanks everyone who has prayed with us, stood beside us, shared memories and offered kindness during this time. Your presence and love mean more than words can express. May God bless you and keep you in peace.",
     ministers,
