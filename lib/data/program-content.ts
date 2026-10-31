@@ -10,7 +10,7 @@ import type {
 
 export const memorialIdentity = {
   fullName: "Bayo Emmanuel Adebimpe",
-  displayName: "Pa Adebimpe",
+  displayName: "Pa Bayo Emmanuel Adebimpe",
   birthDate: "7 January 1951",
   birthDateISO: "1951-01-07",
   entryIntoGloryDate: "20 August 2026",

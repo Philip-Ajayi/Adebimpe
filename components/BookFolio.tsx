@@ -94,23 +94,23 @@ function ServiceContent({ item }: { item: ServiceItem }) {
     call_to_worship:
       "The congregation is led in solemn consecration and invited into the reverent worship of Almighty God.",
     prayer:
-      "Prayer of praise, thanksgiving, and invocation committing the family and church to God's comfort and power.",
+      "Prayer of praise, thanksgiving, and invocation.",
     biography:
-      "The formal reading of the life history, Christian heritage, and legacy of the deceased.",
+      "The formal reading of the life history and legacy of the deceased.",
     favourite_songs:
-      "Hymns and cherished songs chosen by the family to reflect Baba's enduring hope and devotion in Christ.",
+      "Hymns and cherished songs of the deceased.",
     goodnight_bid:
       "A quiet, tender moment as the church and community bid farewell in hope of the resurrection dawn.",
     scripture:
-      "The reading of the Holy Scriptures by the appointed church deacon.",
+      "The reading of the Holy Scriptures.",
     choir:
       "A musical offering and anthem rendered by the Sanctuary Choir.",
     message:
-      "The ministration of the Word of God and message of comfort to the bereaved and congregation.",
+      "The ministration of the Word of God.",
     thanksgiving:
-      "Joyful thanksgiving and offering led by the ministers of God.",
+      "Joyful thanksgiving.",
     recognition:
-      "Greetings, recognition of family, visiting ministers, and guests by the Church Secretary.",
+      "Greetings, recognition of family, visiting ministers, and guests.",
     appreciation:
       "Words of gratitude from the Adebimpe family to all who have supported in prayers and presence.",
     benediction:
