@@ -666,7 +666,7 @@ export const favouriteSongs: FavouriteSong[] = [
     title: "Hold the Fort",
     titleYoruba: "HÁ! Ẹgbẹ́ Mi, Ẹ W’ Àsíá",
     language: "bilingual",
-    note: "Cherished hymn of encouragement and resolute Christian faith.",
+    note: "Hymn of encouragement and resolute Christian faith.",
     isConfirmed: true,
     verses: [
       {
@@ -768,7 +768,7 @@ export const favouriteSongs: FavouriteSong[] = [
     title: "My Hope Is Built on Nothing Less",
     titleYoruba: "Ìgbàgbọ́ Mi Dúró L'órí (YBH 256)",
     language: "bilingual",
-    note: "A beloved anthem of unwavering trust on the solid Rock of Jesus Christ.",
+    note: "Hymn of unwavering trust on the solid Rock of Jesus Christ.",
     isConfirmed: true,
     verses: [
       {
