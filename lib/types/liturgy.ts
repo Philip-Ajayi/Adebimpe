@@ -12,9 +12,10 @@ export interface Hymn {
   id: string;
   titleEnglish: string;
   titleYoruba: string;
+  hymnNumber?: string;
   anchoredBy: string;
   totalVerses: number;
-  linesPerVerse: number;
+  linesPerVerse?: number;
   hasChorus: boolean;
   isConfirmed: boolean;
   verses: BilingualHymnVerse[];
@@ -37,6 +38,7 @@ export type LiturgicalSectionType =
   | "goodnight_bid"
   | "scripture"
   | "choir"
+  | "message"
   | "thanksgiving"
   | "recognition"
   | "appreciation"
@@ -48,6 +50,7 @@ export interface ServiceItem {
   order: string;
   type: LiturgicalSectionType;
   title: string;
+  titleYoruba?: string;
   anchor: string;
   description?: string;
   hymnId?: string;
@@ -57,6 +60,7 @@ export interface ServiceItem {
 export interface FavouriteSong {
   id: string;
   title: string;
+  titleYoruba: string;
   language: LanguageCode;
   note: string;
   verses: BilingualHymnVerse[];
@@ -84,10 +88,19 @@ export interface CelebrationOfLifeProfile {
   fullName: string;
   displayName: string;
   birthDate: string;
+  birthDateISO: string;
   entryIntoGloryDate: string;
+  entryIntoGloryDateISO: string;
   burialDate: string;
+  burialDateISO: string;
+  churchName: string;
+  churchLocation: string;
+  ministerInCharge: string;
+  churchSecretary: string;
+  choirDirector: string;
   heroPortraitUrl: string;
   closingPortraitUrl: string;
+  biographyParagraphs: string[];
   familyThankYouMessage: string;
   ministers: OfficiatingMinister[];
   servicePartOne: ServiceItem[];

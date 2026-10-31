@@ -5,6 +5,7 @@ import {
   ArrowLeft,
   ArrowRight,
   BookOpen,
+  Church,
   List,
   RotateCcw,
 } from "lucide-react";
@@ -28,14 +29,16 @@ function HymnContent({ hymn }: { hymn: Hymn }) {
   return (
     <div className="hymn-content">
       <div className="hymn-title-block">
-        <span className="folio-overline">A HYMN OF FAITH</span>
+        <span className="folio-overline">
+          {hymn.hymnNumber ? hymn.hymnNumber : "A HYMN OF FAITH"}
+        </span>
         <h3>{hymn.titleEnglish}</h3>
         <p className="yoruba-title" lang="yo">
           {hymn.titleYoruba}
         </p>
         <span className="hymn-meta">
-          {hymn.totalVerses} verses
-          {hymn.hasChorus ? " · With chorus" : ""}
+          Led by {hymn.anchoredBy} · {hymn.totalVerses} verses
+          {hymn.hasChorus ? " · Chorus included" : ""}
         </span>
       </div>
 
@@ -64,7 +67,7 @@ function HymnContent({ hymn }: { hymn: Hymn }) {
 
             {verse.englishChorus && verse.yorubaChorus && (
               <div className="chorus-block">
-                <span className="language-label">CHORUS / ẸGBẸ</span>
+                <span className="language-label">CHORUS / ẸGBẸ́</span>
                 <div className="verse-columns">
                   <div>
                     {verse.englishChorus.map((line, index) => (
@@ -82,12 +85,6 @@ function HymnContent({ hymn }: { hymn: Hymn }) {
           </section>
         ))}
       </div>
-
-      {!hymn.isConfirmed && (
-        <p className="mock-note">
-          Demonstration lyrics · Replace with the approved hymn text.
-        </p>
-      )}
     </div>
   );
 }
@@ -95,64 +92,68 @@ function HymnContent({ hymn }: { hymn: Hymn }) {
 function ServiceContent({ item }: { item: ServiceItem }) {
   const descriptions: Record<string, string> = {
     call_to_worship:
-      "The congregation is invited to worship together in reverence, gratitude and hope.",
+      "The congregation is led in solemn consecration and invited into the reverent worship of Almighty God.",
     prayer:
-      "A time to pray together, give thanks and seek God's comfort and guidance.",
+      "Prayer of praise, thanksgiving, and invocation committing the family and church to God's comfort and power.",
     biography:
-      "The story of a life: family, faith, memories and the legacy left behind.",
+      "The formal reading of the life history, Christian heritage, and legacy of the deceased.",
     favourite_songs:
-      "Songs cherished by the deceased, to be shared by the family.",
+      "Hymns and cherished songs chosen by the family to reflect Baba's enduring hope and devotion in Christ.",
     goodnight_bid:
-      "A quiet moment of remembrance as the church bids farewell to a beloved member.",
+      "A quiet, tender moment as the church and community bid farewell in hope of the resurrection dawn.",
     scripture:
-      "The selected Scripture passage will be displayed here once confirmed.",
+      "The reading of the Holy Scriptures by the appointed church deacon.",
     choir:
-      "A musical offering from the choir.",
+      "A musical offering and anthem rendered by the Sanctuary Choir.",
+    message:
+      "The ministration of the Word of God and message of comfort to the bereaved and congregation.",
     thanksgiving:
-      "The congregation joins in thanksgiving.",
+      "Joyful thanksgiving and offering led by the ministers of God.",
     recognition:
-      "Greetings and recognition of family members, ministers and guests.",
+      "Greetings, recognition of family, visiting ministers, and guests by the Church Secretary.",
     appreciation:
-      "Words of appreciation from the family.",
+      "Words of gratitude from the Adebimpe family to all who have supported in prayers and presence.",
     benediction:
-      "A closing prayer for peace, comfort and God's continued guidance.",
+      "The closing prayer and pronouncement of God's grace and blessings.",
     interment:
-      "The committal and interment service.",
+      "The committal, prayer, and final rites at the graveside.",
   };
 
   return (
     <div className="service-content">
       <span className="folio-overline">ORDER OF SERVICE · {item.order}</span>
       <div className="service-emblem" aria-hidden="true">
-        {item.type === "scripture" ? "✦" : "❧"}
+        {item.type === "scripture" ? "✦" : item.type === "message" ? "✝" : "❧"}
       </div>
       <h3>{item.title}</h3>
+      {item.titleYoruba && (
+        <p className="yoruba-title" lang="yo" style={{ margin: "-4px 0 12px" }}>
+          {item.titleYoruba}
+        </p>
+      )}
       <p>{descriptions[item.type] ?? "The service details will appear here."}</p>
 
       <div className="service-anchor">
         <span>LED BY</span>
         <strong>{item.anchor}</strong>
       </div>
-
-      {!item.isConfirmed && (
-        <p className="mock-note">
-          Programme detail awaiting confirmation.
-        </p>
-      )}
     </div>
   );
 }
 
 function BiographyContent() {
   return (
-    <div className="service-content biography-content">
-      <span className="folio-overline">A LIFE REMEMBERED</span>
-      <h3>A Life of Meaning</h3>
-      <p>
-        A life story is best told by the people who shared it. This page is
-        reserved for the approved biography of {memorial.displayName},
-        including family history, faith, milestones and treasured memories.
+    <div className="service-content biography-content" style={{ textAlign: "left" }}>
+      <span className="folio-overline" style={{ textAlign: "center", display: "block" }}>
+        A LIFE REMEMBERED · ÌTÀN ÌGBÉSÍ AYÉ OLÓÒGBÉ
+      </span>
+      <h3 style={{ textAlign: "center", marginBottom: "4px" }}>
+        {memorial.fullName}
+      </h3>
+      <p style={{ textAlign: "center", color: "#877958", fontStyle: "italic", margin: "0 0 14px" }}>
+        {memorial.displayName} (1951 — 2026)
       </p>
+
       <div className="biography-dates">
         <div>
           <span>BORN</span>
@@ -163,9 +164,23 @@ function BiographyContent() {
           <strong>{memorial.entryIntoGloryDate}</strong>
         </div>
       </div>
-      <p className="mock-note">
-        Add the family's verified biography before publishing.
-      </p>
+
+      <div style={{ display: "grid", gap: "14px", marginTop: "14px" }}>
+        {memorial.biographyParagraphs.map((para, index) => (
+          <p
+            key={index}
+            style={{
+              margin: 0,
+              fontSize: "14px",
+              lineHeight: 1.7,
+              color: "#3a3832",
+              textIndent: index > 0 ? "1.2em" : "0",
+            }}
+          >
+            {para}
+          </p>
+        ))}
+      </div>
     </div>
   );
 }
@@ -174,14 +189,17 @@ function FavouriteSongsContent() {
   return (
     <div className="service-content favourite-songs-content">
       <span className="folio-overline">SONGS HELD CLOSE</span>
-      <h3>Favourite Songs</h3>
+      <h3>The Deceased's Favourite Songs</h3>
       <p className="folio-intro">
-        Songs selected by the family, presented one line at a time.
+        Songs cherished by Pa Bayo Emmanuel Adebimpe throughout his pilgrimage of faith.
       </p>
 
       {favouriteSongs.map((song) => (
         <section className="favourite-song" key={song.id}>
           <h4>{song.title}</h4>
+          <p className="yoruba-title" lang="yo" style={{ margin: "2px 0 6px" }}>
+            {song.titleYoruba}
+          </p>
           <p className="song-note">{song.note}</p>
 
           {song.verses.map((verse) => (
@@ -207,10 +225,6 @@ function FavouriteSongsContent() {
           ))}
         </section>
       ))}
-
-      <p className="mock-note">
-        All song titles and lyrics must be checked and approved by the family.
-      </p>
     </div>
   );
 }
@@ -221,8 +235,7 @@ function TributeContent() {
       <span className="folio-overline">WORDS FROM THE HEART</span>
       <h3>Tributes</h3>
       <p>
-        Family and friends are invited to remember a life through their own
-        words and shared experiences.
+        Words of remembrance honoring the memory of Pa Bayo Emmanuel Adebimpe.
       </p>
 
       <div className="book-tribute-list">
@@ -246,8 +259,7 @@ function MinisterContent() {
       <span className="folio-overline">WITH GRATITUDE</span>
       <h3>Officiating Ministers</h3>
       <p>
-        We acknowledge the ministers who will lead the service and support
-        the family in worship and prayer.
+        Ministers and leaders officiating at {memorial.churchName}, Ibadan.
       </p>
 
       <div className="book-minister-list">
@@ -262,7 +274,6 @@ function MinisterContent() {
           </div>
         ))}
       </div>
-      <p className="mock-note">Minister names and churches are placeholders.</p>
     </div>
   );
 }
@@ -274,8 +285,8 @@ function ThankYouContent() {
       <div className="service-emblem" aria-hidden="true">♡</div>
       <h3>Thank You</h3>
       <p>{memorial.familyThankYouMessage}</p>
-      <p className="thank-you-signature">With love and gratitude</p>
-      <p className="thank-you-name">{memorial.displayName}’s Family</p>
+      <p className="thank-you-signature">With love and gratitude,</p>
+      <p className="thank-you-name">The Adebimpe Family</p>
     </div>
   );
 }
@@ -309,7 +320,9 @@ export default function BookFolio() {
               <span className="cover-date-dash">—</span>
               <span>{memorial.entryIntoGloryDate}</span>
             </div>
-            <span className="cover-bottom-label">A LIFE · A LEGACY · A LOVE</span>
+            <span className="cover-bottom-label">
+              {memorial.churchName.toUpperCase()} · IBADAN
+            </span>
           </div>
         ),
       },
@@ -317,20 +330,23 @@ export default function BookFolio() {
         id: "welcome-note",
         eyebrow: "A WORD OF WELCOME",
         title: "Gathered in Love",
-        subtitle: "A moment of remembrance",
+        subtitle: `${memorial.churchName}, Ibadan`,
         content: (
           <div className="service-content">
             <span className="folio-overline">WELCOME</span>
             <div className="service-emblem" aria-hidden="true">✧</div>
-            <h3>A Gathering of Gratitude</h3>
+            <h3>Celebration of Life Service</h3>
             <p>
-              Today, family, friends and the church come together to give
-              thanks for a life shared, to honour cherished memories, and to
-              find comfort in faith and one another.
+              Today, family, church members, and friends assemble at{" "}
+              <strong>{memorial.churchName}</strong>, {memorial.churchLocation},
+              to celebrate the life of <strong>{memorial.fullName}</strong>.
             </p>
-            <p>
-              May every hymn, prayer and word of remembrance bring peace to
-              those who mourn and honour the life we celebrate.
+            <p style={{ fontSize: "14px", color: "#615746", lineHeight: 1.6 }}>
+              <strong>Minister in Charge:</strong> {memorial.ministerInCharge}
+              <br />
+              <strong>Church Secretary:</strong> {memorial.churchSecretary}
+              <br />
+              <strong>Choir Director:</strong> {memorial.choirDirector}
             </p>
             <div className="service-anchor">
               <span>BURIAL SERVICE</span>
@@ -343,7 +359,7 @@ export default function BookFolio() {
         id: "ministers",
         eyebrow: "THE OFFICIATING MINISTERS",
         title: "Those Who Lead Us",
-        subtitle: "A ministry of faith and service",
+        subtitle: "Ministers of the Gospel",
         content: <MinisterContent />,
       },
     ];
@@ -351,13 +367,15 @@ export default function BookFolio() {
     const addService = (items: ServiceItem[], partTitle: string) => {
       for (const item of items) {
         const hymn = item.hymnId ? getHymn(item.hymnId) : undefined;
-        const content = hymn
-          ? <HymnContent hymn={hymn} />
-          : item.type === "biography"
-            ? <BiographyContent />
-            : item.type === "favourite_songs"
-              ? <FavouriteSongsContent />
-              : <ServiceContent item={item} />;
+        const content = hymn ? (
+          <HymnContent hymn={hymn} />
+        ) : item.type === "biography" ? (
+          <BiographyContent />
+        ) : item.type === "favourite_songs" ? (
+          <FavouriteSongsContent />
+        ) : (
+          <ServiceContent item={item} />
+        );
 
         result.push({
           id: item.id,
@@ -375,7 +393,7 @@ export default function BookFolio() {
       id: "grave-divider",
       eyebrow: "PART II",
       title: "At the Grave",
-      subtitle: "A final act of love and committal",
+      subtitle: "Committal and final rites",
       content: (
         <div className="book-cover-inner section-divider-inner">
           <div className="cover-ornament" aria-hidden="true">✧</div>
@@ -383,8 +401,9 @@ export default function BookFolio() {
           <h2>At the Grave</h2>
           <span className="cover-rule" />
           <p className="cover-scripture">
-            In faith, in hope, and in the peace of God.
+            “For if we believe that Jesus died and rose again, even so them also which sleep in Jesus will God bring with him.”
           </p>
+          <p className="cover-reference">1 THESSALONIANS 4:14</p>
         </div>
       ),
     });
@@ -395,15 +414,15 @@ export default function BookFolio() {
       id: "home-divider",
       eyebrow: "PART III",
       title: "At Home",
-      subtitle: "Family gathering and prayer",
+      subtitle: "Ìsìn ní Ilé",
       content: (
         <div className="book-cover-inner section-divider-inner">
           <div className="cover-ornament" aria-hidden="true">✧</div>
           <span className="cover-small-label">PART THREE</span>
-          <h2>At Home</h2>
+          <h2>At Home / Ìsìn ní Ilé</h2>
           <span className="cover-rule" />
           <p className="cover-scripture">
-            May peace rest upon every heart and every home.
+            May peace, fellowship, and divine comfort abide upon every heart and home.
           </p>
         </div>
       ),
@@ -416,28 +435,30 @@ export default function BookFolio() {
         id: "tributes",
         eyebrow: "TRIBUTES",
         title: "Words of Remembrance",
-        subtitle: "Memories that remain",
+        subtitle: "Cherished recollections",
         content: <TributeContent />,
       },
       {
         id: "hymn-index",
         eyebrow: "THE HYMN COLLECTION",
         title: "Hymns of Faith",
-        subtitle: "The complete hymn collection",
+        subtitle: "All hymns for the service",
         content: (
           <div className="service-content">
             <span className="folio-overline">THE HYMN COLLECTION</span>
-            <h3>Hymns for the Journey</h3>
+            <h3>Order of Hymns</h3>
             <div className="hymn-index-list">
               {hymns.map((hymn, index) => (
                 <div key={hymn.id} className="hymn-index-entry">
                   <span>{String(index + 1).padStart(2, "0")}</span>
                   <div>
-                    <strong>{hymn.titleEnglish}</strong>
+                    <strong>
+                      {hymn.hymnNumber ? `${hymn.hymnNumber} · ` : ""}
+                      {hymn.titleEnglish}
+                    </strong>
                     <p lang="yo">{hymn.titleYoruba}</p>
                     <small>
-                      {hymn.totalVerses} verses
-                      {hymn.hasChorus ? " · Chorus included" : ""}
+                      {hymn.totalVerses} verses · Led by {hymn.anchoredBy}
                     </small>
                   </div>
                 </div>
@@ -450,7 +471,7 @@ export default function BookFolio() {
         id: "final-thanks",
         eyebrow: "WITH GRATITUDE",
         title: "Thank You",
-        subtitle: "From the family",
+        subtitle: "From the Adebimpe Family",
         content: <ThankYouContent />,
       },
     );
@@ -521,8 +542,7 @@ export default function BookFolio() {
         </span>
         <h2>A story held <em>in every page.</em></h2>
         <p>
-          Turn the pages to follow the service, read the hymns and share in
-          this celebration of life.
+          Turn the pages to follow the service at {memorial.churchName}, read the bilingual hymns, and share in this celebration of life.
         </p>
       </div>
 
@@ -564,12 +584,10 @@ export default function BookFolio() {
                 <p>{active.subtitle}</p>
               </div>
 
-              <div className="page-content">
-                {active.content}
-              </div>
+              <div className="page-content">{active.content}</div>
 
               <div className="page-footer">
-                <span>IN LOVING MEMORY</span>
+                <span>IN LOVING MEMORY OF {memorial.displayName.toUpperCase()}</span>
                 <span className="page-number">
                   {String(currentPage + 1).padStart(2, "0")}
                   <i> / </i>
@@ -648,7 +666,7 @@ export default function BookFolio() {
               <BookOpen size={17} />
               <div>
                 <strong>Contents</strong>
-                <span>Choose a page to read</span>
+                <span>Choose a service page</span>
               </div>
             </div>
 
@@ -672,7 +690,7 @@ export default function BookFolio() {
 
       <p className="folio-hint">
         <span aria-hidden="true">↔</span>
-        Use the arrows, swipe on mobile, or press your keyboard arrow keys.
+        Use the arrows, swipe on mobile, or press keyboard arrow keys.
       </p>
     </section>
   );

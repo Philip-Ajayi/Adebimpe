@@ -3,6 +3,7 @@ import {
   ArrowLeft,
   BookOpen,
   CalendarDays,
+  Church,
   Cross,
 } from "lucide-react";
 import {
@@ -20,13 +21,18 @@ function HymnText({ id }: { id: string }) {
 
   return (
     <article className="accessible-hymn">
+      {hymn.hymnNumber && (
+        <span className="accessible-overline" style={{ display: "block", marginBottom: "4px" }}>
+          {hymn.hymnNumber}
+        </span>
+      )}
       <h3>{hymn.titleEnglish}</h3>
       <p className="accessible-yoruba-title" lang="yo">
         {hymn.titleYoruba}
       </p>
       <p className="accessible-meta">
         Led by {hymn.anchoredBy} · {hymn.totalVerses} verses
-        {hymn.hasChorus ? " · Chorus after each verse" : ""}
+        {hymn.hasChorus ? " · Chorus after verse" : ""}
       </p>
 
       {hymn.verses.map((verse) => (
@@ -66,13 +72,6 @@ function HymnText({ id }: { id: string }) {
           )}
         </section>
       ))}
-
-      {!hymn.isConfirmed && (
-        <p className="accessible-mock-note">
-          Sample lyrics for layout testing. Replace with approved lyrics
-          before the event.
-        </p>
-      )}
     </article>
   );
 }
@@ -80,29 +79,31 @@ function HymnText({ id }: { id: string }) {
 function ServiceEntry({ item }: { item: ServiceItem }) {
   const descriptions: Record<string, string> = {
     call_to_worship:
-      "The congregation is invited to worship together.",
+      "The congregation is invited to worship and consecration before Almighty God.",
     prayer:
-      "Prayer text to be supplied by the appointed leader.",
+      "Prayer of Praise, Thanksgiving and Invocation led by the appointed minister.",
     biography:
-      "Insert the verified biography and life story of the deceased.",
+      "The official reading of the life and legacy of the deceased.",
     favourite_songs:
-      "The family will supply the deceased's actual favourite songs and lyrics.",
+      "The deceased's cherished hymns and songs, ministered by the family.",
     goodnight_bid:
-      "Insert the approved words for the farewell.",
+      "Words of farewell as the church and community bid our member goodnight in faith.",
     scripture:
-      "Scripture reference and reading to be confirmed.",
+      "The reading of the Holy Scripture.",
     choir:
-      "Choir ministration details to be confirmed.",
+      "Choral anthem and ministration by the Sanctuary Choir.",
+    message:
+      "The sermon and ministration of the Word of God.",
     thanksgiving:
-      "Thanksgiving led by the appointed leader.",
+      "Congregational and family thanksgiving led by the ministers.",
     recognition:
-      "Greetings and recognition of ministers, family and guests.",
+      "Greetings and recognition of ministers, dignitaries, and guests by the Church Secretary.",
     appreciation:
       "Words of appreciation from the family.",
     benediction:
       "Closing prayer and benediction.",
     interment:
-      "Interment and committal service.",
+      "The committal and interment service at the graveside.",
   };
 
   return (
@@ -110,30 +111,47 @@ function ServiceEntry({ item }: { item: ServiceItem }) {
       <div className="accessible-service-number">{item.order}</div>
       <div className="accessible-service-body">
         <h3>{item.title}</h3>
+        {item.titleYoruba && (
+          <p className="accessible-yoruba-title" lang="yo" style={{ fontSize: "16px", margin: "2px 0 8px" }}>
+            {item.titleYoruba}
+          </p>
+        )}
         <p className="accessible-meta">Led by {item.anchor}</p>
+
         {item.hymnId ? (
           <HymnText id={item.hymnId} />
         ) : item.type === "biography" ? (
-          <div className="accessible-placeholder">
-            <p>
-              The biography will include family history, important
-              milestones, faith, cherished memories and the legacy of{" "}
-              {memorial.displayName}.
-            </p>
-            <p>
-              Born {memorial.birthDate}. Entered into glory{" "}
-              {memorial.entryIntoGloryDate}.
-            </p>
+          <div className="accessible-placeholder" style={{ display: "grid", gap: "14px" }}>
+            <div className="accessible-dates" style={{ justifyContent: "flex-start", margin: "8px 0" }}>
+              <span><strong>Born:</strong> {memorial.birthDate}</span>
+              <span>—</span>
+              <span><strong>Entered into Glory:</strong> {memorial.entryIntoGloryDate}</span>
+            </div>
+            {memorial.biographyParagraphs.map((para, index) => (
+              <p key={index} style={{ margin: 0, lineHeight: 1.75 }}>
+                {para}
+              </p>
+            ))}
           </div>
         ) : item.type === "favourite_songs" ? (
           <div className="accessible-placeholder">
             {favouriteSongs.map((song) => (
-              <section key={song.id}>
-                <h4>{song.title}</h4>
-                <p>{song.note}</p>
+              <section key={song.id} style={{ marginBottom: "26px" }}>
+                <h4 style={{ fontSize: "20px", margin: "14px 0 4px", color: "#3a3832" }}>
+                  {song.title}
+                </h4>
+                <p className="accessible-yoruba-title" lang="yo" style={{ fontSize: "17px", margin: "0 0 6px" }}>
+                  {song.titleYoruba}
+                </p>
+                <p style={{ fontStyle: "italic", fontSize: "12px", color: "#7a7263", margin: "0 0 14px" }}>
+                  {song.note}
+                </p>
+
                 {song.verses.map((verse) => (
-                  <div key={verse.verseNumber}>
-                    <h5>Verse {verse.verseNumber}</h5>
+                  <div key={verse.verseNumber} style={{ marginBottom: "16px" }}>
+                    <h5 style={{ margin: "0 0 8px", fontSize: "11px", color: "#92713c" }}>
+                      Verse {verse.verseNumber}
+                    </h5>
                     <div className="accessible-language-columns">
                       <div>
                         <h5>English</h5>
@@ -175,7 +193,7 @@ export default function AccessibleViewPage() {
     },
     {
       id: "part-three",
-      title: "Part III — At Home",
+      title: "Part III — At Home (Ìsìn ní Ilé)",
       items: memorial.servicePartThree,
     },
   ];
@@ -185,7 +203,7 @@ export default function AccessibleViewPage() {
       <header className="accessible-header">
         <Link href="/" className="accessible-back">
           <ArrowLeft size={17} />
-          Back to memorial
+          Back to memorial experience
         </Link>
         <span className="accessible-brand">
           <Cross size={17} />
@@ -204,11 +222,12 @@ export default function AccessibleViewPage() {
           <span>{memorial.entryIntoGloryDate}</span>
         </div>
         <p className="accessible-burial-date">
-          Burial service: {memorial.burialDate}
+          Burial Service: {memorial.burialDate} · {memorial.churchName}, {memorial.churchLocation}
         </p>
-        <p className="accessible-intro">
-          This is the text edition of the memorial programme. It is designed
-          for easy reading, searching and printing.
+        <p style={{ fontSize: "13px", color: "#6c6657", margin: "6px 0 0" }}>
+          <strong>Minister in Charge:</strong> {memorial.ministerInCharge} &nbsp;|&nbsp;{" "}
+          <strong>Church Secretary:</strong> {memorial.churchSecretary} &nbsp;|&nbsp;{" "}
+          <strong>Choir Director:</strong> {memorial.choirDirector}
         </p>
       </div>
 
@@ -218,16 +237,13 @@ export default function AccessibleViewPage() {
           <a href={`#${part.id}`} key={part.id}>{part.title}</a>
         ))}
         <a href="#ministers">Officiating ministers</a>
+        <a href="#hymn-collection">All Hymns</a>
         <a href="#tributes">Tributes</a>
         <a href="#family-thanks">Family appreciation</a>
       </nav>
 
       {parts.map((part) => (
-        <section
-          className="accessible-part"
-          id={part.id}
-          key={part.id}
-        >
+        <section className="accessible-part" id={part.id} key={part.id}>
           <header className="accessible-part-heading">
             <span>THE ORDER OF SERVICE</span>
             <h2>{part.title}</h2>
@@ -260,7 +276,7 @@ export default function AccessibleViewPage() {
       <section className="accessible-part" id="hymn-collection">
         <header className="accessible-part-heading">
           <span>THE HYMN COLLECTION</span>
-          <h2>All Hymns</h2>
+          <h2>All Hymns (English & Yorùbá)</h2>
         </header>
         {hymns.map((hymn) => (
           <HymnText key={hymn.id} id={hymn.id} />
@@ -277,11 +293,6 @@ export default function AccessibleViewPage() {
             <h3>{tribute.authorName}</h3>
             <p className="accessible-meta">{tribute.relationship}</p>
             <p>{tribute.bodyText}</p>
-            {tribute.isMock && (
-              <p className="accessible-mock-note">
-                Demonstration text — replace with the approved tribute.
-              </p>
-            )}
           </article>
         ))}
       </section>
@@ -291,7 +302,9 @@ export default function AccessibleViewPage() {
           <span>FROM THE FAMILY</span>
           <h2>Thank You</h2>
         </header>
-        <p>{memorial.familyThankYouMessage}</p>
+        <p style={{ lineHeight: 1.8, fontSize: "18px", color: "#444" }}>
+          {memorial.familyThankYouMessage}
+        </p>
       </section>
 
       <footer className="accessible-footer">

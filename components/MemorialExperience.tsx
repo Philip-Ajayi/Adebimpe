@@ -133,7 +133,7 @@ export default function MemorialExperience() {
 
           <p className="hero-intro">
             In grateful remembrance of a life entrusted to us, a legacy
-            cherished, and a love that will remain.
+            cherished, and a love that will remain forever in our hearts.
           </p>
 
           <div className="hero-name-block">
@@ -164,6 +164,8 @@ export default function MemorialExperience() {
             <span className="hero-note-dot" />
             <span>BURIAL SERVICE</span>
             <strong>{memorial.burialDate}</strong>
+            <span className="hero-note-dot" />
+            <span>{memorial.churchName.toUpperCase()}, IBADAN</span>
           </div>
         </div>
 
@@ -187,7 +189,7 @@ export default function MemorialExperience() {
                   <Cross size={30} strokeWidth={1} />
                   <span>IN LOVING MEMORY</span>
                   <strong>{memorial.displayName}</strong>
-                  <small>Add the celebration portrait to public/images/memorial.</small>
+                  <small>Add portrait to public/images/memorial.</small>
                 </div>
               )}
               <div className="portrait-vignette" />
@@ -233,14 +235,13 @@ export default function MemorialExperience() {
           <em>that time cannot erase.</em>
         </h2>
         <p>
-          We gather in faith and gratitude to remember {memorial.displayName},
-          to celebrate the years that were given, and to hold close the
-          stories, lessons and moments that made this life so meaningful.
+          We gather at {memorial.churchName}, Ibadan, in faith and gratitude to remember {memorial.displayName},
+          to celebrate the 75 blessed years that were given, and to hold close the
+          stories, lessons, and moments that made this life so meaningful.
         </p>
         <p>
-          Through Scripture, song, prayer and shared memories, may this
-          gathering bring comfort to the family and honour a life remembered
-          with love.
+          Through Scripture, sacred hymnody, prayer, and shared memories, may this
+          gathering bring comfort to the family and honor a life remembered with deep love.
         </p>
         <div className="intro-signoff">
           <span />
@@ -254,7 +255,7 @@ export default function MemorialExperience() {
           <span className="timeline-symbol">✧</span>
           <span className="timeline-label">BORN</span>
           <strong>{memorial.birthDate}</strong>
-          <span className="timeline-note">The beginning of a life</span>
+          <span className="timeline-note">The beginning of a blessed journey</span>
         </div>
         <div className="timeline-connector" aria-hidden="true">
           <span />
@@ -265,7 +266,7 @@ export default function MemorialExperience() {
           <span className="timeline-symbol">♡</span>
           <span className="timeline-label">REMEMBERED</span>
           <strong>{memorial.displayName}</strong>
-          <span className="timeline-note">A life held in our hearts</span>
+          <span className="timeline-note">Held forever in our hearts</span>
         </div>
         <div className="timeline-connector" aria-hidden="true">
           <span />
@@ -276,7 +277,7 @@ export default function MemorialExperience() {
           <span className="timeline-symbol">✦</span>
           <span className="timeline-label">ENTERED INTO GLORY</span>
           <strong>{memorial.entryIntoGloryDate}</strong>
-          <span className="timeline-note">Resting in God's keeping</span>
+          <span className="timeline-note">At rest in the presence of Christ</span>
         </div>
       </section>
 
@@ -296,8 +297,8 @@ export default function MemorialExperience() {
           <span>AN ACCESSIBLE ALTERNATIVE</span>
           <h3>Prefer a simple reading view?</h3>
           <p>
-            Read every service item and hymn in a clean, accessible layout
-            without the page-turn animation.
+            Read every service item, scripture, and bilingual hymn in a clean,
+            accessible layout without the page-turn animation.
           </p>
         </div>
         <a href="/accessible-view" className="programme-shortcut-link">
@@ -348,8 +349,8 @@ export default function MemorialExperience() {
             </h2>
             <p>{memorial.familyThankYouMessage}</p>
             <div className="family-thanks-signature">
-              <span>With love,</span>
-              <strong>{memorial.displayName}&apos;s Family</strong>
+              <span>With love and gratitude,</span>
+              <strong>The Adebimpe Family</strong>
             </div>
             <div className="family-thanks-ornament" aria-hidden="true">
               ✧
@@ -361,12 +362,12 @@ export default function MemorialExperience() {
       <footer className="site-footer">
         <a href="#home" className="footer-brand">
           <Cross size={19} strokeWidth={1.3} />
-          <span>IN LOVING MEMORY</span>
+          <span>IN LOVING MEMORY OF {memorial.displayName.toUpperCase()}</span>
         </a>
         <p>Remembered with love. Held in faith. Never forgotten.</p>
-        <a href="/accessible-view">View the full programme</a>
+        <a href="/accessible-view">View the full programme text</a>
         <span className="footer-copyright">
-          A memorial created in honour of {memorial.displayName}.
+          Service held at {memorial.churchName}, Ibadan · {memorial.burialDate}.
         </span>
       </footer>
     </main>
