@@ -1165,48 +1165,21 @@ export const tributes: TributeItem[] = [
 
 export const memories: MemoryPhoto[] = [
   {
-    id: "memory-01",
+    id: "memory-portrait",
     src: "/images/memorial/celebration-portrait.jpeg",
-    alt: "Celebration portrait of Pa Bayo Emmanuel Adebimpe",
+    alt: "Celebration of Pa Bayo Emmanuel Adebimpe",
     caption: "A life remembered with love and faith",
     featured: true,
   },
-  {
-    id: "memory-02",
-    src: "/images/memorial/memory-01.jpeg",
-    alt: "Family memory photograph",
-    caption: "Precious family moments and laughter",
-  },
-  {
-    id: "memory-03",
-    src: "/images/memorial/memory-02.jpeg",
-    alt: "Photograph from the family archive",
-    caption: "A life of faithful devotion",
-  },
-  {
-    id: "memory-04",
-    src: "/images/memorial/memory-03.jpeg",
-    alt: "Another cherished memory",
-    caption: "Cherished moments across the years",
-  },
-  {
-    id: "memory-05",
-    src: "/images/memorial/memory-04.jpeg",
-    alt: "Fellowship with church and friends",
-    caption: "Surrounded by fellowship and warmth",
-  },
-  {
-    id: "memory-06",
-    src: "/images/memorial/memory-05.jpeg",
-    alt: "A treasured milestone",
-    caption: "Walking in honor and dignity",
-  },
-  {
-    id: "memory-07",
-    src: "/images/memorial/memory-06.jpeg",
-    alt: "A further photograph from the family archive",
-    caption: "A lasting legacy of integrity",
-  },
+  ...Array.from({ length: 26 }, (_, i) => {
+    const num = String(i + 1).padStart(2, "0");
+    return {
+      id: `memory-${num}`,
+      src: `/images/memorial/memory-${num}.jpeg`,
+      alt: `Cherished memory ${num}`,
+      caption: `Cherished memory ${num}`,
+    };
+  }),
 ];
 
 export const memorial: CelebrationOfLifeProfile = {
