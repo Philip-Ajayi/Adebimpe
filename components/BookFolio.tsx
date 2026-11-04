@@ -15,7 +15,7 @@ import {
   hymns,
   memorial,
 } from "@/lib/data/program-content";
-import type { Hymn, ServiceItem } from "@/lib/types/liturgy";
+import type { Hymn, ServiceItem, TributeItem } from "@/lib/types/liturgy";
 
 type FolioPage = {
   id: string;
@@ -229,17 +229,21 @@ function FavouriteSongsContent() {
   );
 }
 
-function TributeContent() {
+function TributeSpreadContent({
+  tributesList,
+  sectionHeading,
+}: {
+  tributesList: TributeItem[];
+  sectionHeading: string;
+}) {
   return (
     <div className="service-content">
       <span className="folio-overline">WORDS FROM THE HEART</span>
-      <h3>Tributes</h3>
-      <p>
-        Words of remembrance honoring the memory of Pa Bayo Emmanuel Adebimpe.
-      </p>
+      <h3>{sectionHeading}</h3>
+      <p>Words of remembrance honoring the memory of Pa Bayo Emmanuel Adebimpe.</p>
 
       <div className="book-tribute-list">
-        {memorial.tributes.map((tribute) => (
+        {tributesList.map((tribute) => (
           <blockquote key={tribute.id}>
             <p>“{tribute.bodyText}”</p>
             <footer>
@@ -430,14 +434,49 @@ export default function BookFolio() {
 
     addService(memorial.servicePartThree, "PART III · AT HOME");
 
+    // Children Tributes spread
+    result.push({
+      id: "tributes-children",
+      eyebrow: "TRIBUTES · FROM THE CHILDREN",
+      title: "Beloved Father",
+      subtitle: "Cherished memories from sons and daughters",
+      content: (
+        <TributeSpreadContent
+          sectionHeading="From the Children"
+          tributesList={memorial.tributes.slice(0, 3)}
+        />
+      ),
+    });
+
+    // Siblings Tributes spread
+    result.push({
+      id: "tributes-siblings",
+      eyebrow: "TRIBUTES · FROM SIBLINGS",
+      title: "Special Brother",
+      subtitle: "Words of love from brothers and sisters",
+      content: (
+        <TributeSpreadContent
+          sectionHeading="From the Siblings"
+          tributesList={memorial.tributes.slice(3, 6)}
+        />
+      ),
+    });
+
+    // Fellowship & Church Tributes spread
+    result.push({
+      id: "tributes-community",
+      eyebrow: "TRIBUTES · FELLOWSHIP & CHURCH",
+      title: "A Life in Service",
+      subtitle: "From brethren and community",
+      content: (
+        <TributeSpreadContent
+          sectionHeading="Fellowship & Church"
+          tributesList={memorial.tributes.slice(6)}
+        />
+      ),
+    });
+
     result.push(
-      {
-        id: "tributes",
-        eyebrow: "TRIBUTES",
-        title: "Words of Remembrance",
-        subtitle: "Cherished recollections",
-        content: <TributeContent />,
-      },
       {
         id: "hymn-index",
         eyebrow: "THE HYMN COLLECTION",

@@ -26,13 +26,13 @@ export const memorialIdentity = {
 
 export const biographyParagraphs: string[] = [
   "Pa Bayo Emmanuel Adebimpe was born on the 7th of January, 1951, into a faithful family rooted in integrity, Christian virtues, and moral honor. From his earliest days, young Bayo was characterized by a calm disposition, an inquisitive intellect, and an exceptional sense of responsibility. Growing up under disciplined parental guidance, he absorbed timeless lessons of truthfulness, respect for elders, and the value of hard work—foundational principles that would illuminate every chapter of his life.",
-  "His educational journey was marked by diligence and a steadfast pursuit of excellence. Approaching his studies with zeal, he developed practical wisdom and professional competence that served him across decades of active service. In his career, Pa Adebimpe distinguished himself as an upright, dependable, and conscientious administrator whose word was his bond. Colleagues, partners, and associates held him in highest regard for his punctuality, fairness, and uncompromising ethical standards.",
-  "Central to Pa Bayo Emmanuel Adebimpe's life was a vibrant, personal walk with Jesus Christ. Having embraced the Lord in his youth and walked faithfully within the Baptist denomination, he made the Holy Scriptures his compass and the house of God his sanctuary. His faith was active and practical: he was a fervent student of the Word, an ardent intercessor, and a passionate lover of sacred hymns, often singing praises in quiet moments of family life and personal meditation.",
+  "His educational journey was marked by diligence and a steadfast pursuit of excellence. In his career, Pa Adebimpe distinguished himself as an upright, dependable, and highly skilled professional electrician and creative art designer. His craftsmanship and honesty earned him wide patronage within Oyo State, across Nigeria, and beyond. Colleagues, clients, and associates held him in the highest regard for his punctuality, fairness, and uncompromising ethical standards.",
+  "Central to Pa Bayo Emmanuel Adebimpe's life was a vibrant, personal walk with Jesus Christ. Having embraced the Lord in his youth and walked faithfully within the Baptist denomination, he made the Holy Scriptures his compass and the house of God his sanctuary. His faith was active and practical: he was a fervent student of the Word, an ardent intercessor, and a passionate lover of sacred hymns, known by all for his heartfelt, joyous worship and precise, enthusiastic dancing steps in praise of his Maker.",
   "His service at Iwo Road Baptist Church, Ibadan, stood as a radiant testament to his devotion to the Kingdom of God. Over decades of committed membership, Pa Adebimpe was a trusted pillar in the congregation, an active member of the Men's Missionary Union (MMU), and an unwavering supporter of church evangelism and development initiatives. He revered God's ministers, encouraged the choir and youth ministries, and was regularly sought after for his sound, peaceful, and balanced counsel in matters of church life.",
-  "As a devoted husband, father, and family patriarch, Pa Adebimpe exemplified self-sacrificing love and spiritual leadership. His home was a haven of prayer, warmth, hospitality, and joy. Alongside his beloved wife, he raised his children in the nurture and admonition of the Lord, instilling in them the virtues of humility, academic diligence, contentment, and faith. He led regular morning and evening family devotions, ensuring that Christ remained the undisputed cornerstone of his home.",
-  "Beyond the walls of his church and home, Pa Adebimpe's generosity touched countless lives throughout his community. He possessed a rare sensitivity to the needs of others, quietly paying school fees, supporting widows, sheltering relatives, and encouraging struggling artisans without seeking acclaim. Many will remember him as the dependable uncle, the peacemaking elder, and the compassionate neighbor who never hesitated to lift others up.",
-  "In his golden years, Pa Adebimpe remained radiant in spirit, joyful in fellowship, and unshaken in hope. Though physical vigor mellowed with age, his spiritual perception grew ever sharper. His conversations were permeated with thanksgiving to the Almighty, blessings for the next generation, and testimonies of God's sustaining grace through over seven and a half decades of life.",
-  "On the 20th of August, 2026, having fought the good fight, completed his earthly race, and kept the faith, Pa Bayo Emmanuel Adebimpe peacefully transitioned to be with his Lord and Savior. While his departure leaves a sacred void, we do not mourn like those without hope; we celebrate a life of purpose, honor, and enduring faith. Sleep on, beloved father and elder; good night, until we meet on the resurrection morning.",
+  "As a devoted husband to his beloved wife, Deaconess Alice Adebimpe, and as a loving father and family patriarch, Pa Adebimpe exemplified self-sacrificing love and spiritual leadership. His home was a haven of prayer, warmth, hospitality, and joy. Alongside his wife, he raised his children in the nurture and admonition of the Lord, instilling in them the virtues of humility, discipline, gratitude, and faith, fondly branding each child with unique names of affection.",
+  "Beyond the walls of his church and home, Pa Adebimpe's generosity touched countless lives throughout his family and community. He possessed a rare sensitivity to the needs of others—mentoring younger siblings, encouraging education, supporting training apprenticeships, and standing by those in need without seeking acclaim. Many will remember him as the dependable brother, the peacemaking elder, and the compassionate neighbor who never hesitated to lift others up.",
+  "In his golden years, Pa Adebimpe remained radiant in spirit, joyful in fellowship, and unshaken in hope. His conversations were permeated with thanksgiving to the Almighty, blessings for the next generation, and testimonies of God's sustaining grace through over seven and a half decades of life.",
+  "On the 20th of August, 2026, having fought the good fight, completed his earthly race, and kept the faith, Pa Bayo Emmanuel Adebimpe peacefully transitioned to be with his Lord and Savior. While his departure leaves a sacred void, we do not mourn like those without hope; we celebrate a life of purpose, honor, and enduring faith. Sleep on, beloved father, husband, and brother; good night, until we meet on the resurrection morning.",
 ];
 
 export const ministers: OfficiatingMinister[] = [
@@ -608,7 +608,7 @@ export const hymns: Hymn[] = [
           "Ọjọ́ ayé mi ńsáré lọ s'ópin,",
           "Ayọ̀ ayé ńkú, ògo rẹ̀ ńwọ 'mi;",
           "Àyídà àt' ìbàjẹ́ ni mo ńrí;",
-"'Wọ tí kì í yípadà, wá, bá mi gbé.",
+          "'Wọ tí kì í yípadà, wá, bá mi gbé.",
         ],
       },
       {
@@ -1135,12 +1135,66 @@ export const servicePartThree: ServiceItem[] = [
 
 export const tributes: TributeItem[] = [
   {
-    id: "tribute-family",
-    authorName: "The Family",
-    relationship: "Family Tribute",
+    id: "tribute-abayomi",
+    authorName: "Abayomi Adebimpe",
+    relationship: "First Son",
     bodyText:
-      "We give thanks to Almighty God for the exemplary, sacrificial, and godly life of our beloved patriarch, Pa Bayo Emmanuel Adebimpe. You were our beacon of strength, wisdom, and unconditional love. The godly foundation and enduring values you instilled in us will forever guide our paths. Sleep peacefully in the bosom of your Maker until we meet to part no more.",
+      "Daddy, it is painful to accept that you are no longer with us. As your first son, losing you has left a vacuum in my heart that words cannot adequately express. One of the things I will fondly cherish was the special name you called me and all my siblings whenever you wanted our attention. You branded each person in your own way, with special names only you could call. It was part of our unique identities, and now that you are no more, we will miss hearing it from your lips. No one else can call us those names quite like you did, Dad. You were a man of discipline, a father who understood the importance of good values and made efforts to instill that in me. Your sense of gratitude, infused in your unequal show of honor and respect for everyone who crossed your path, was noteworthy. Even for the smallest act of kindness, you would sincerely show gratitude with a broad smile and a consistent “Thank you.” That humility and sense of gratitude were part of what made you unique. Daddy, need I talk about your calculative and precise dancing steps whenever you heard fine tunes? You were a joy to watch, and onlookers could not help but admire the happiness and passion with which you worshipped your Maker. That beautiful sight will forever remain in our memories. At 75, you have answered the call of your Creator, but your memories, values, and legacy will live on. I thank God for the privilege of being your son and for the years we shared. Adieu, Alagba Emmanuel Adebayo Adebimpe.",
     date: "6 November 2026",
+    isMock: false,
+  },
+  {
+    id: "tribute-tosin",
+    authorName: "Tosin Adebimpe",
+    relationship: "Daughter / Child",
+    bodyText:
+      "It still feels unreal that you are gone. When I visited you at the hospital after work that evening, I didn't even know it would be our last contact. You reassured me with your gentle smile and convincing humor that everything would be alright. You said it was just a minor discomfort and that you only came in to rest. I never knew the unease would become your final rest. I left that room believing with all my heart that everything would be fine, promising to bring food the next day. I never knew our conversation would be our last, or that I would be the last person to see you alive. When the rude call came at 11:00 PM about your departure, it was unbelievable, but I am grateful for the privilege of that last sight. It was a memory filled with peace, an experience I will forever cherish. Thank you for teaching me discipline and how to live a principled life. Your love will guide me forever. Rest peacefully in God's arms until we meet again. As you fondly call me, TOSIN.",
+    date: "6 November 2026",
+    isMock: false,
+  },
+  {
+    id: "tribute-dolapo",
+    authorName: "Dolapo Philips",
+    relationship: "Child",
+    bodyText:
+      "Dear Dad, thank you for the lessons you taught. Thank you for the silence you fought. Now the battle is done. Please, rest. REST, Dad.",
+    date: "6 November 2026",
+    isMock: false,
+  },
+  {
+    id: "tribute-fodeso",
+    authorName: "Deacon Ademola Fodeso",
+    relationship: "Younger Brother (Oyo)",
+    bodyText:
+      "Ecclesiastes 3:1-2 reminds us that there is a time for everything; a time to be born and a time to die. Ẹ̀gbọ́n, you were born into this world and I believe you fulfilled your unique purpose. The journey might have been rough, but your life was a blessing to me. Indeed, I am eternally grateful to God for such a gift I received in you. In 1979, ten years after completing my primary school education, you advised me to go back to school and encouraged me to further my studies at Anglican Methodist Secondary Modern School, Oyo, during the Oyo State Free Education program when Chief Bola Ige was the State Governor. Through your effort, I got the admission and later became one of the best educators in the same school. Who would have known, but for a man who did not only see a vision for himself, but also for everyone around him. Bọ̀dá Bayo, you were an encourager, a man of courage, integrity, compassion, determination, and utmost resilience. Through every challenge, you remained steadfast in your faith and in the One who has called you home. Ẹ̀gbọ́n, we will miss your acrobatic and systematic dancing steps both in church and in family engagements. You did not only bring laughter, you also always showed up with cheers and ecstatic joy. We will miss you, and that will be forever. Rest on, Brother Emmanuel Adebayo, till we meet and part no more.",
+    date: "6 November 2026",
+    isMock: false,
+  },
+  {
+    id: "tribute-olofin",
+    authorName: "Dns. H.I.T. Olofin",
+    relationship: "Junior Sister",
+    bodyText:
+      "To God be the glory on the peaceful transition of my brother, Late Emmanuel Adebayo Adebimpe, on Thursday, 20th of August 2026. He was a man of faith and prayers, and his focus on the Lord Jesus Christ was truly admirable. You held on to your belief in God that He is able to do all things, and till your last breath, that was ever your song. You were dedicated and undoubtedly a loving husband to your wife, Deaconess Alice Adebimpe, and a committed father to your children and to those of us who not only share a name with you, but also share blood with you. You were diligent, faithful, honest, and efficient in your skills as a professional electrician and creative art designer. These potentials harnessed patronage for you within the country and beyond. You valued discipline; you wouldn't take no for an answer, and you never hid your displeasure. Ẹ̀gbọ́n Bayo, sleep well till we meet at the resurrection morning at the feet of our Lord Jesus Christ. Amen.",
+    date: "6 November 2026",
+    isMock: false,
+  },
+  {
+    id: "tribute-sibling",
+    authorName: "Loving Sibling",
+    relationship: "Sister",
+    bodyText:
+      "I had thought we would have more time for more conversations, more laughter, more ordinary days, and more thoughtful acts. I didn't know one goodbye could become a lifetime of unfinished moments. I remember the day you took my twin and me to our boss to train as secretaries, and the times we would come to Amuda Ojeere house in Ibadan to sleep for the night. You were a joy and a blessing beyond compare. Though you are gone, my love will be for you forever. You may not hear me say it, but it is still so true. Adebayo Emmanuel, you were indeed my special brother.",
+    date: "6 November 2026",
+    isMock: false,
+  },
+  {
+    id: "tribute-fgbmfi",
+    authorName: "Larry Idehen (KSC)",
+    relationship: "President, FGBMFI Calabar Executive Chapter",
+    bodyText:
+      "Condolence Message on the Death of your beloved Father: Alagba Emmanuel ‘Bayo Adebimpe. We heard of the demise of your dearly beloved father with a very heavy heart. Losing a loved one is never easy; therefore, we understand the pain and sorrow you must be feeling. Please know that our thoughts are with you and your family as you go through this period of grief. We are consoled by the fact that your father died in the Lord. While he was still with us, your father dedicated his life to the service of his community and humanity in general whilst serving God as his inspiration and drive for excellence. We enjoin you to take heart and be strong in faith. As believers, there is a resurrection morning when we shall all meet again in glory to part no more. We pray that you find comfort and strength in the love and support around you. On behalf of the Calabar Executive Chapter, we pray God to comfort and heal you, your immediate and extended families, and grant you the fortitude to bear this irreparable loss.",
+    date: "19 October 2026",
     isMock: false,
   },
   {
@@ -1148,16 +1202,7 @@ export const tributes: TributeItem[] = [
     authorName: "Iwo Road Baptist Church",
     relationship: "Church Family Tribute",
     bodyText:
-      "Pa Bayo Emmanuel Adebimpe was an esteemed elder, a committed church worker, and an ardent lover of Christ. His dedication to fellowship, his passion for sacred hymns, and his peaceful countenance enriched our church community. We give God the glory for his faithful stewardship and pray that God comforts his beloved family and church family.",
-    date: "6 November 2026",
-    isMock: false,
-  },
-  {
-    id: "tribute-friends",
-    authorName: "Friends and Well-Wishers",
-    relationship: "Friends & Community",
-    bodyText:
-      "A true friend, a dependable brother, and a peacemaker in the community. Baba's warm smile, generous spirit, and upright character left an indelible footprint in our hearts. His legacy of kindness and integrity will remain an inspiration for generations.",
+      "Pa Bayo Emmanuel Adebimpe was an esteemed elder, a committed church worker, and an ardent lover of Christ. His dedication to fellowship, his passion for sacred hymns, and his peaceful countenance enriched our church community. We give God the glory for his faithful stewardship and pray that God comforts his beloved wife, Deaconess Alice Adebimpe, his children, and the entire church family.",
     date: "6 November 2026",
     isMock: false,
   },
