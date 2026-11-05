@@ -18,21 +18,31 @@ export const memorialIdentity = {
   burialDate: "6 November 2026",
   burialDateISO: "2026-11-06",
   churchName: "Iwo Road Baptist Church",
-  churchLocation: "Iwo Road, Ibadan, Oyo State, Nigeria",
+  churchLocation: "Oyediji-Monatan, Ibadan, Oyo State, Nigeria",
   ministerInCharge: "Rev Dr Adeoba Kolawole",
   churchSecretary: "Dn. Oluwaseun Adegoke",
   choirDirector: "Bro Ayodele Adeleye",
 };
 
 export const biographyParagraphs: string[] = [
-  "Pa Bayo Emmanuel Adebimpe was born on the 7th of January, 1951, into a faithful family rooted in integrity, Christian virtues, and moral honor. From his earliest days, young Bayo was characterized by a calm disposition, an inquisitive intellect, and an exceptional sense of responsibility. Growing up under disciplined parental guidance, he absorbed timeless lessons of truthfulness, respect for elders, and the value of hard work—foundational principles that would illuminate every chapter of his life.",
-  "His educational journey was marked by diligence and a steadfast pursuit of excellence. In his career, Pa Adebimpe distinguished himself as an upright, dependable, and highly skilled professional electrician and creative art designer. His craftsmanship and honesty earned him wide patronage within Oyo State, across Nigeria, and beyond. Colleagues, clients, and associates held him in the highest regard for his punctuality, fairness, and uncompromising ethical standards.",
-  "Central to Pa Bayo Emmanuel Adebimpe's life was a vibrant, personal walk with Jesus Christ. Having embraced the Lord in his youth and walked faithfully within the Baptist denomination, he made the Holy Scriptures his compass and the house of God his sanctuary. His faith was active and practical: he was a fervent student of the Word, an ardent intercessor, and a passionate lover of sacred hymns, known by all for his heartfelt, joyous worship and precise, enthusiastic dancing steps in praise of his Maker.",
-  "His service at Iwo Road Baptist Church, Ibadan, stood as a radiant testament to his devotion to the Kingdom of God. Over decades of committed membership, Pa Adebimpe was a trusted pillar in the congregation, an active member of the Men's Missionary Union (MMU), and an unwavering supporter of church evangelism and development initiatives. He revered God's ministers, encouraged the choir and youth ministries, and was regularly sought after for his sound, peaceful, and balanced counsel in matters of church life.",
-  "As a devoted husband to his beloved wife, Deaconess Alice Adebimpe, and as a loving father and family patriarch, Pa Adebimpe exemplified self-sacrificing love and spiritual leadership. His home was a haven of prayer, warmth, hospitality, and joy. Alongside his wife, he raised his children in the nurture and admonition of the Lord, instilling in them the virtues of humility, discipline, gratitude, and faith, fondly branding each child with unique names of affection.",
-  "Beyond the walls of his church and home, Pa Adebimpe's generosity touched countless lives throughout his family and community. He possessed a rare sensitivity to the needs of others—mentoring younger siblings, encouraging education, supporting training apprenticeships, and standing by those in need without seeking acclaim. Many will remember him as the dependable brother, the peacemaking elder, and the compassionate neighbor who never hesitated to lift others up.",
-  "In his golden years, Pa Adebimpe remained radiant in spirit, joyful in fellowship, and unshaken in hope. His conversations were permeated with thanksgiving to the Almighty, blessings for the next generation, and testimonies of God's sustaining grace through over seven and a half decades of life.",
-  "On the 20th of August, 2026, having fought the good fight, completed his earthly race, and kept the faith, Pa Bayo Emmanuel Adebimpe peacefully transitioned to be with his Lord and Savior. While his departure leaves a sacred void, we do not mourn like those without hope; we celebrate a life of purpose, honor, and enduring faith. Sleep on, beloved father, husband, and brother; good night, until we meet on the resurrection morning.",
+  "Dear family, friends, neighbors, associates, and communities of faith, we have gathered here today to celebrate the life, experiences, and influence of a man whose 75 years on earth have made remarkable impacts and whose memories linger on in the hearts of those he loved.",
+  "Emmanuel Bayo Adebimpe, fondly called Alagba was born on January 7th, 1951, into the family of Late Pa Solomon Ojo and Late Mama Maria Aronke Adebimpe of llamo Compound, Agboye in Oyo town. He had his primary education within the neighborhood at Agboye Primary Day School, Agboye, Oyo.",
+  "Like every young boy of his age at the time, he ventured into learning to trade and spent more of his time traveling from town to town, within and outside the state. This enabled him to learn and master seven different languages with which he made transactions with his customers.",
+  "During this time, Bayo demonstrated an aptitude for machines, their functionality, maintenance, and repair. Within a short time, he streamlined his desires and enrolled as an intern with an extended family member who taught him the ways and waves of electric currents. After mastering commercial trade skills and acquiring electrical engineering skills, Bayo Emmanuel decided to pursue formal education in 1976. He graduated from Modern School before gaining admission to Technical College Awe, Oyo, where he graduated as a qualified Electrical Engineer in 1980.",
+  "He worked briefly with Adegoke Motors as a Technician between 1985 and 1990 before he resigned to start his own company, where he worked as a successful licensed contractor and also trained capable hands who later in their pursuits became masters of the craft. His efficiency in this line of work enhanced his influence within the Licensed Electrical Contractors Association of Nigeria (LECAN), where he served in different leadership capacities till his death.",
+  "As a man of native creativity and intelligence, he belonged to different drama groups both in church and outside the church, and was involved in several stage performances and art exhibitions which projected his abilities. By following this creative path, Bayo Emmanuel created an artistic brand that remolded unevenly shaped pieces of wood into something creative, attractive and presentable as a gift on special occasions. Some of his carved works, during this time, became prized possessions in homes, churches and a few corporate organizations.",
+  "His love and passion for music and dance can never be overstated. Right from an early age, he was known for his systematic and calculated steps, and the amusing twists of his body whenever he was dancing and singing. This love for music led him to join and lead different choral groups and serve in different music ministries from his days at Agboye Baptist Church down to his early days at Iwo Road Baptist Church. Although, circumstances might have necessitated his absence in choral groups, but not even old age or weak bones and frail body could deny him of bending his body around when he hears fine tunes…..",
+  "In demonstrating his leadership ability, Alagba Bayo Emmanuel Adebimpe served as:",
+  "• Assistant Choir Master at Iwo Road Baptist Church in 1986",
+  "• Member, Afurugbin Society, Iwo Road Baptist Church from 1989 to 2001",
+  "• Evangelism Coordinator, Men’s Missionary Union, Iwo Road Baptist Church (2020 – till death)",
+  "• Evangelism Coordinator, Men’s Missionary Union, Cornerstone Baptist Association (2020 – 2023)",
+  "• PRO/Visitation Secretary, Men’s Missionary Union, Cornerstone Baptist Association (2025 – till death)",
+  "• Chairman, Security Committee: Iwo Road Baptist Church (from 2021 till death)",
+  "• Member, Jesus' Love Singers (1992 – 2001)",
+  "Late Bayo Emmanuel Adebimpe charismatically met Alice Oyebisi nee Oyediran in a casual conversation around the 1974 Christmas celebration, and that meeting ignited a love story that led to a beautiful marriage, blessed with children and grandchildren.",
+  "While the music plays on from this side of eternity, Emmanuel Bayo Adebimpe has continued dancing to the rhythms in the heavenly places, as you and I are left to keep dancing to the tunes on the earth.",
+  "Teach us to number our days, that we may align our hearts to knowing and our thoughts to the consciousness of your mightiness, acknowledging you as the one who owns the fading breath that keeps us alive.",
 ];
 
 export const ministers: OfficiatingMinister[] = [
@@ -927,7 +937,7 @@ export const servicePartOne: ServiceItem[] = [
     "06",
     "biography",
     "The Deceased Biography",
-    "Family Representative",
+    "Adeyemi Adebimpe",
     {
       titleYoruba: "Ìtàn Ìgbésí Ayé Olóògbé",
     },
@@ -1027,14 +1037,25 @@ export const servicePartOne: ServiceItem[] = [
     "16",
     "appreciation",
     "Words of Appreciation",
-    "Family Representative",
+    "Adeyemi Adebimpe",
     {
       titleYoruba: "Ọ̀rọ̀ Ìmọyì àti Ìdúpẹ́",
     },
   ),
   service(
-    "closing-prayer",
+    "flier",
     "17",
+    "flier",
+    "Celebration of Life Flier",
+    "The Adebimpe Family",
+    {
+      titleYoruba: "Àwòrán Ìrántí Olóògbé",
+      description: "Memorial flier and appreciation from the family.",
+    },
+  ),
+  service(
+    "closing-prayer",
+    "18",
     "benediction",
     "Closing Prayer and Benediction",
     "Rev Dr Adeoba Kolawole",
@@ -1044,7 +1065,7 @@ export const servicePartOne: ServiceItem[] = [
   ),
   service(
     "recessional",
-    "18",
+    "19",
     "hymn",
     "Recessional Hymn: YBH 603",
     "Bro Ayodele Adeleye (Choir Director)",
@@ -1135,6 +1156,15 @@ export const servicePartThree: ServiceItem[] = [
 
 export const tributes: TributeItem[] = [
   {
+    id: "tribute-wife",
+    authorName: "Alice Oyebisi Adebimpe",
+    relationship: "Wife",
+    bodyText:
+      "I sincerely appreciate the Lord for the grace to have Emmanuel Adebayo Adebimpe as my lovely husband. His death reminded me of one favorite hymn, which says:\n\n“Fading away like the stars of the morning,\nLosing their light in the glorious sun \nThus would we pass from the earth and its toiling\nOnly remembered by what we have done.”\n\nOur love story started like the dawn of a new day: it shone like a sweet, radiant morning star. Our love and our family were like a yardstick for everyone - there was no deceit, there was no falsehood. Everything was equally shared between the two of us. The blessings of the Lord rest upon us to the point of birth – both the boys and the girls.\n\nHowever, along the path of our journey, storm raged, a wind blew, but it did not sweep us away. We give thanks, Lord, thank you.\n\nOn Wednesday, August 19th, 2026, we both had a long conversation. We still had dreams and visions. We still built expectations, and our conclusion that day was a prayer against death so we could both pursue and achieve our new plans. The call on Thursday that you were admitted at the hospital was an unexpected twist. Yet, your words were reassuring, and your voice was comforting… until the final blow that night: the call that broke the whole news, the news about your death.\n\nMy love, the father of my children, the head and face of the family, you left like a wind that lifts a leaf from a rooftop. Where did you go? I screamed; I cried out, but still you are no more. Alagbe, Adebayo, Son of Aronke, Son of Solomon.\n\nBayo, we love you, but Jesus loves you more. Sleep well.\n\nAdieu. Adieu. Adieu.",
+    date: "6 November 2026",
+    isMock: false,
+  },
+  {
     id: "tribute-abayomi",
     authorName: "Abayomi Adebimpe",
     relationship: "First Son",
@@ -1149,6 +1179,24 @@ export const tributes: TributeItem[] = [
     relationship: "Daughter / Child",
     bodyText:
       "It still feels unreal that you are gone. When I visited you at the hospital after work that evening, I didn't even know it would be our last contact. You reassured me with your gentle smile and convincing humor that everything would be alright. You said it was just a minor discomfort and that you only came in to rest. I never knew the unease would become your final rest. I left that room believing with all my heart that everything would be fine, promising to bring food the next day. I never knew our conversation would be our last, or that I would be the last person to see you alive. When the rude call came at 11:00 PM about your departure, it was unbelievable, but I am grateful for the privilege of that last sight. It was a memory filled with peace, an experience I will forever cherish. Thank you for teaching me discipline and how to live a principled life. Your love will guide me forever. Rest peacefully in God's arms until we meet again. As you fondly call me, TOSIN.",
+    date: "6 November 2026",
+    isMock: false,
+  },
+  {
+    id: "tribute-adenike",
+    authorName: "Adenike Taiwo",
+    relationship: "Daughter",
+    bodyText:
+      "Fading away like the stars of the morning,\nLosing their light in the glorious sun\nThus would we pass from the earth and its toiling\nOnly remembered by what we have done.\n\nIf you unite with your granddaughters, help me tell the three of them I am missing them.",
+    date: "6 November 2026",
+    isMock: false,
+  },
+  {
+    id: "tribute-omobodunrinola",
+    authorName: "Omobodunrinola",
+    relationship: "Daughter",
+    bodyText:
+      "You have gone too soon, and you will surely be missed. Your departure left a void in my heart because of the love we shared.\n\nWhen I heard about your departure that ecstatic night of August 20th, 2026, I was really devastated, and up till now, it feels like a dream. Though my heart is heavy with grief over your loss, I take comfort in the fact that God knows best even when I cannot understand His ways.\n\nThe memories we shared together are irreplaceable. You showed me how to exhibit my creativity. You helped me to believe in myself because you first believed in me. And above all, you showed me the way of the Lord. You were my first preacher, my first teacher and my all-time counselor.\n\nEven though you are no more here with me, your memory will forever remain in my heart. Rest peacefully in the bosom of the Lord till I see you again.",
     date: "6 November 2026",
     isMock: false,
   },
@@ -1208,21 +1256,53 @@ export const tributes: TributeItem[] = [
   },
 ];
 
+const memoryCaptions: string[] = [
+  "Daddy, after a thanksgiving service.",
+  "Lovebirds during the Elders Luncheon held in 2023 at Iwo Road Baptist Church.",
+  "Daddy amidst other elders during the Elders Luncheon",
+  "Daddy with his wife and son, during the Elders' Luncheon.",
+  "Daddy and his Son, Adeyemi, with his dear friend, Late Col. Abel Oyedele",
+  "Daddy during an End of the Year Party with the Daycare Department.",
+  "Daddy in Act!",
+  "Daddy and his wife, with Aunty Kehinde during a honour service",
+  "Daddy in a ecstatic moment.",
+  "Daddy in a honour service.",
+  "Daddy and his family during Adejoke Tosin's wedding service.",
+  "Daddy in a reflective mood",
+  "Daddy during Adeyemi's Convocation from the University.",
+  "During a honour service.",
+  "Daddy at a special program in church",
+  "An old picture of Daddy, his wife and their children - Abayomi, Adejoke and Adejoke.",
+  "Daddy in Action during a thanksgiving service.",
+  "Daddy during the christening service of one of his grandchildren.",
+  "Daddy and Mummy during Mummy's Ordination as Deaconess at Iwo Road Baptist Church, Monatan, Ibadan.",
+  "Daddy and Mummy during the christening service of his grandchildren.",
+  "Daddy and Mummy during Adejoke and Olushola Wedding Ceremony.",
+  "Daddy and Mummy at one of their grandchildren christening.",
+  "Daddy in Action ...",
+  "Daddy during Mummy's graduation from NCE program.",
+  "Daddy and Mummy at an award ceremony at Hebron Centre, Idi-Ishin..",
+  "Daddy and Mummy with Rev'd Dr. S.A. Adekunle during Mummy's Ordination program.",
+  "Daddy during Adenike's Wedding Ceremony",
+  "Daddy and the Taiwos",
+  "Daddy during the christening of his grandchild.",
+];
+
 export const memories: MemoryPhoto[] = [
   {
     id: "memory-portrait",
     src: "/images/memorial/celebration-portrait.jpeg",
-    alt: "Celebration of Pa Bayo Emmanuel Adebimpe",
-    caption: "A life remembered with love and faith",
+    alt: "Daddy at 60years",
+    caption: "Daddy at 60years",
     featured: true,
   },
-  ...Array.from({ length: 26 }, (_, i) => {
-    const num = String(i + 1).padStart(2, "0");
+  ...memoryCaptions.map((caption, index) => {
+    const num = String(index + 1).padStart(2, "0");
     return {
       id: `memory-${num}`,
       src: `/images/memorial/memory-${num}.jpeg`,
-      alt: `Cherished memory ${num}`,
-      caption: `Cherished memory ${num}`,
+      alt: caption,
+      caption,
     };
   }),
 ];

@@ -42,6 +42,7 @@ export type LiturgicalSectionType =
   | "thanksgiving"
   | "recognition"
   | "appreciation"
+  | "flier"
   | "benediction"
   | "interment";
 

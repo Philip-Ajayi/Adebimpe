@@ -1,11 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   ArrowLeft,
   ArrowRight,
   BookOpen,
-  Church,
   List,
   RotateCcw,
 } from "lucide-react";
@@ -125,17 +125,44 @@ function ServiceContent({ item }: { item: ServiceItem }) {
       <div className="service-emblem" aria-hidden="true">
         {item.type === "scripture" ? "✦" : item.type === "message" ? "✝" : "❧"}
       </div>
-      <h3>{item.title}</h3>
-      {item.titleYoruba && (
-        <p className="yoruba-title" lang="yo" style={{ margin: "-4px 0 12px" }}>
-          {item.titleYoruba}
-        </p>
-      )}
+      <h3 lang={item.titleYoruba ? "yo" : undefined}>
+        {item.titleYoruba ?? item.title}
+      </h3>
       <p>{descriptions[item.type] ?? "The service details will appear here."}</p>
 
       <div className="service-anchor">
         <span>LED BY</span>
         <strong>{item.anchor}</strong>
+      </div>
+    </div>
+  );
+}
+
+function FlierContent() {
+  return (
+    <div className="service-content flier-content" style={{ padding: "4px 2px" }}>
+      <span className="folio-overline">IN LOVING MEMORY</span>
+      <h3 lang="yo" style={{ margin: "6px 0 10px" }}>Àwòrán Ìrántí Olóògbé</h3>
+      <div
+        style={{
+          position: "relative",
+          width: "100%",
+          maxWidth: "420px",
+          height: "430px",
+          margin: "0 auto",
+          borderRadius: "4px",
+          overflow: "hidden",
+          border: "1px solid rgba(155, 120, 58, 0.35)",
+          boxShadow: "0 8px 24px rgba(0, 0, 0, 0.15)",
+        }}
+      >
+        <Image
+          src="/images/memorial/flier.jpeg"
+          alt="Celebration of Life Flier of Pa Bayo Emmanuel Adebimpe"
+          fill
+          sizes="(max-width: 800px) 90vw, 420px"
+          style={{ objectFit: "contain" }}
+        />
       </div>
     </div>
   );
@@ -165,21 +192,38 @@ function BiographyContent() {
         </div>
       </div>
 
-      <div style={{ display: "grid", gap: "14px", marginTop: "14px" }}>
-        {memorial.biographyParagraphs.map((para, index) => (
-          <p
-            key={index}
-            style={{
-              margin: 0,
-              fontSize: "14px",
-              lineHeight: 1.7,
-              color: "#3a3832",
-              textIndent: index > 0 ? "1.2em" : "0",
-            }}
-          >
-            {para}
-          </p>
-        ))}
+      <div style={{ display: "grid", gap: "10px", marginTop: "14px" }}>
+        {memorial.biographyParagraphs.map((para, index) => {
+          if (para.startsWith("•")) {
+            return (
+              <p
+                key={index}
+                style={{
+                  margin: "0 0 0 14px",
+                  fontSize: "13.5px",
+                  lineHeight: 1.6,
+                  color: "#3a3832",
+                }}
+              >
+                {para}
+              </p>
+            );
+          }
+          return (
+            <p
+              key={index}
+              style={{
+                margin: 0,
+                fontSize: "14px",
+                lineHeight: 1.7,
+                color: "#3a3832",
+                textIndent: index > 0 && !para.startsWith("In demonstrating") ? "1.2em" : "0",
+              }}
+            >
+              {para}
+            </p>
+          );
+        })}
       </div>
     </div>
   );
@@ -189,7 +233,7 @@ function FavouriteSongsContent() {
   return (
     <div className="service-content favourite-songs-content">
       <span className="folio-overline">SONGS HELD CLOSE</span>
-      <h3>The Deceased's Favourite Songs</h3>
+      <h3 lang="yo">Àwọn Orin tí Olóògbé Fẹ́ràn</h3>
       <p className="folio-intro">
         Songs cherished by Pa Bayo Emmanuel Adebimpe throughout his pilgrimage of faith.
       </p>
@@ -229,6 +273,47 @@ function FavouriteSongsContent() {
   );
 }
 
+function WifeTributeContent({ tribute }: { tribute: TributeItem }) {
+  const paragraphs = tribute.bodyText.split("\n\n");
+
+  return (
+    <div className="service-content" style={{ textAlign: "left" }}>
+      <span className="folio-overline" style={{ textAlign: "center", display: "block" }}>
+        FROM THE BELOVED WIFE
+      </span>
+      <h3 lang="yo" style={{ textAlign: "center", marginBottom: "8px" }}>
+        Ọ̀rọ̀ Ìrántí láti Ọwọ́ Ìyàwó Olùfẹ́
+      </h3>
+      <p style={{ textAlign: "center", color: "#877958", fontStyle: "italic", margin: "0 0 16px" }}>
+        “My love, the father of my children, the head and face of the family...”
+      </p>
+
+      <div className="book-tribute-list" style={{ marginTop: "4px" }}>
+        <blockquote style={{ padding: "16px 14px" }}>
+          {paragraphs.map((p, idx) => (
+            <p
+              key={idx}
+              style={{
+                margin: "0 0 10px",
+                lineHeight: 1.68,
+                fontSize: "13.5px",
+                fontStyle: p.startsWith("“Fading") ? "italic" : "normal",
+                color: p.startsWith("“Fading") ? "#705c3b" : "#444",
+              }}
+            >
+              {p}
+            </p>
+          ))}
+          <footer style={{ marginTop: "14px" }}>
+            <strong style={{ fontSize: "17px" }}>{tribute.authorName}</strong>
+            <span>{tribute.relationship}</span>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  );
+}
+
 function TributeSpreadContent({
   tributesList,
   sectionHeading,
@@ -245,7 +330,7 @@ function TributeSpreadContent({
       <div className="book-tribute-list">
         {tributesList.map((tribute) => (
           <blockquote key={tribute.id}>
-            <p>“{tribute.bodyText}”</p>
+            <p style={{ whiteSpace: "pre-line" }}>“{tribute.bodyText}”</p>
             <footer>
               <strong>{tribute.authorName}</strong>
               <span>{tribute.relationship}</span>
@@ -261,9 +346,9 @@ function MinisterContent() {
   return (
     <div className="service-content">
       <span className="folio-overline">WITH GRATITUDE</span>
-      <h3>Officiating Ministers</h3>
+      <h3 lang="yo">Àwọn Ìránṣẹ́ Ọlọ́run Olùdarí</h3>
       <p>
-        Ministers and leaders officiating at {memorial.churchName}, Ibadan.
+        Ministers and leaders officiating at {memorial.churchName}, Oyediji-Monatan, Ibadan.
       </p>
 
       <div className="book-minister-list">
@@ -287,7 +372,7 @@ function ThankYouContent() {
     <div className="service-content thank-you-content">
       <span className="folio-overline">FROM THE FAMILY</span>
       <div className="service-emblem" aria-hidden="true">♡</div>
-      <h3>Thank You</h3>
+      <h3 lang="yo">Ọ̀rọ̀ Ìdúpẹ́ láti Ọwọ́ Ìdílé</h3>
       <p>{memorial.familyThankYouMessage}</p>
       <p className="thank-you-signature">With love and gratitude,</p>
       <p className="thank-you-name">The Adebimpe Family</p>
@@ -325,7 +410,7 @@ export default function BookFolio() {
               <span>{memorial.entryIntoGloryDate}</span>
             </div>
             <span className="cover-bottom-label">
-              {memorial.churchName.toUpperCase()} · IBADAN
+              {memorial.churchName.toUpperCase()} · OYEDIJI-MONATAN, IBADAN
             </span>
           </div>
         ),
@@ -334,15 +419,15 @@ export default function BookFolio() {
         id: "welcome-note",
         eyebrow: "A WORD OF WELCOME",
         title: "Gathered in Love",
-        subtitle: `${memorial.churchName}, Ibadan`,
+        subtitle: `${memorial.churchName}, Oyediji-Monatan, Ibadan`,
         content: (
           <div className="service-content">
             <span className="folio-overline">WELCOME</span>
             <div className="service-emblem" aria-hidden="true">✧</div>
-            <h3>Celebration of Life Service</h3>
+            <h3 lang="yo">Ìsìn Ìrántí àti Ìyìn</h3>
             <p>
               Today, family, church members, and friends assemble at{" "}
-              <strong>{memorial.churchName}</strong>, {memorial.churchLocation},
+              <strong>{memorial.churchName}</strong>, Oyediji-Monatan, Ibadan,
               to celebrate the life of <strong>{memorial.fullName}</strong>.
             </p>
             <p style={{ fontSize: "14px", color: "#615746", lineHeight: 1.6 }}>
@@ -377,6 +462,8 @@ export default function BookFolio() {
           <BiographyContent />
         ) : item.type === "favourite_songs" ? (
           <FavouriteSongsContent />
+        ) : item.type === "flier" ? (
+          <FlierContent />
         ) : (
           <ServiceContent item={item} />
         );
@@ -385,7 +472,7 @@ export default function BookFolio() {
           id: item.id,
           eyebrow: partTitle,
           title: item.title,
-          subtitle: `Led by ${item.anchor}`,
+          subtitle: item.type === "flier" ? "The Adebimpe Family" : `Led by ${item.anchor}`,
           content,
         });
       }
@@ -402,7 +489,7 @@ export default function BookFolio() {
         <div className="book-cover-inner section-divider-inner">
           <div className="cover-ornament" aria-hidden="true">✧</div>
           <span className="cover-small-label">PART TWO</span>
-          <h2>At the Grave</h2>
+          <h2 lang="yo">Ní Ìtẹ́</h2>
           <span className="cover-rule" />
           <p className="cover-scripture">
             “For if we believe that Jesus died and rose again, even so them also which sleep in Jesus will God bring with him.”
@@ -423,7 +510,7 @@ export default function BookFolio() {
         <div className="book-cover-inner section-divider-inner">
           <div className="cover-ornament" aria-hidden="true">✧</div>
           <span className="cover-small-label">PART THREE</span>
-          <h2>At Home / Ìsìn ní Ilé</h2>
+          <h2 lang="yo">Ìsìn ní Ilé</h2>
           <span className="cover-rule" />
           <p className="cover-scripture">
             May peace, fellowship, and divine comfort abide upon every heart and home.
@@ -434,21 +521,44 @@ export default function BookFolio() {
 
     addService(memorial.servicePartThree, "PART III · AT HOME");
 
-    // Children Tributes spread
+    // 1. Wife Tribute Spread
     result.push({
-      id: "tributes-children",
+      id: "tribute-wife",
+      eyebrow: "TRIBUTE · FROM THE WIFE",
+      title: "My Lovely Husband",
+      subtitle: "Deaconess Alice Oyebisi Adebimpe",
+      content: <WifeTributeContent tribute={memorial.tributes[0]} />,
+    });
+
+    // 2. Children Tributes spread 1
+    result.push({
+      id: "tributes-children-1",
       eyebrow: "TRIBUTES · FROM THE CHILDREN",
       title: "Beloved Father",
-      subtitle: "Cherished memories from sons and daughters",
+      subtitle: "Cherished memories from sons and daughters (Part I)",
       content: (
         <TributeSpreadContent
           sectionHeading="From the Children"
-          tributesList={memorial.tributes.slice(0, 3)}
+          tributesList={memorial.tributes.slice(1, 4)}
         />
       ),
     });
 
-    // Siblings Tributes spread
+    // 3. Children Tributes spread 2
+    result.push({
+      id: "tributes-children-2",
+      eyebrow: "TRIBUTES · FROM THE CHILDREN",
+      title: "Treasured Memories",
+      subtitle: "Cherished memories from sons and daughters (Part II)",
+      content: (
+        <TributeSpreadContent
+          sectionHeading="From the Children"
+          tributesList={memorial.tributes.slice(4, 6)}
+        />
+      ),
+    });
+
+    // 4. Siblings Tributes spread
     result.push({
       id: "tributes-siblings",
       eyebrow: "TRIBUTES · FROM SIBLINGS",
@@ -457,12 +567,12 @@ export default function BookFolio() {
       content: (
         <TributeSpreadContent
           sectionHeading="From the Siblings"
-          tributesList={memorial.tributes.slice(3, 6)}
+          tributesList={memorial.tributes.slice(6, 9)}
         />
       ),
     });
 
-    // Fellowship & Church Tributes spread
+    // 5. Fellowship & Church Tributes spread
     result.push({
       id: "tributes-community",
       eyebrow: "TRIBUTES · FELLOWSHIP & CHURCH",
@@ -471,7 +581,7 @@ export default function BookFolio() {
       content: (
         <TributeSpreadContent
           sectionHeading="Fellowship & Church"
-          tributesList={memorial.tributes.slice(6)}
+          tributesList={memorial.tributes.slice(9)}
         />
       ),
     });
@@ -485,7 +595,7 @@ export default function BookFolio() {
         content: (
           <div className="service-content">
             <span className="folio-overline">THE HYMN COLLECTION</span>
-            <h3>Order of Hymns</h3>
+            <h3 lang="yo">Àkójọpọ̀ Àwọn Orin Ìsìn</h3>
             <div className="hymn-index-list">
               {hymns.map((hymn, index) => (
                 <div key={hymn.id} className="hymn-index-entry">

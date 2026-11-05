@@ -3,7 +3,6 @@ import {
   ArrowLeft,
   BookOpen,
   CalendarDays,
-  Church,
   Cross,
 } from "lucide-react";
 import {
@@ -128,10 +127,34 @@ function ServiceEntry({ item }: { item: ServiceItem }) {
               <span><strong>Entered into Glory:</strong> {memorial.entryIntoGloryDate}</span>
             </div>
             {memorial.biographyParagraphs.map((para, index) => (
-              <p key={index} style={{ margin: 0, lineHeight: 1.75 }}>
+              <p
+                key={index}
+                style={{
+                  margin: para.startsWith("•") ? "2px 0 2px 18px" : 0,
+                  lineHeight: 1.75,
+                }}
+              >
                 {para}
               </p>
             ))}
+          </div>
+        ) : item.type === "flier" ? (
+          <div className="accessible-placeholder" style={{ textAlign: "center", margin: "16px 0" }}>
+            <div style={{ position: "relative", maxWidth: "480px", margin: "0 auto" }}>
+              <img
+                src="/images/memorial/flier.jpeg"
+                alt="Celebration of Life Flier of Pa Bayo Emmanuel Adebimpe"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  maxHeight: "600px",
+                  objectFit: "contain",
+                  borderRadius: "6px",
+                  border: "1px solid #d8c6a5",
+                  boxShadow: "0 6px 20px rgba(0, 0, 0, 0.1)",
+                }}
+              />
+            </div>
           </div>
         ) : item.type === "favourite_songs" ? (
           <div className="accessible-placeholder">
@@ -292,7 +315,7 @@ export default function AccessibleViewPage() {
           <article className="accessible-tribute" key={tribute.id}>
             <h3>{tribute.authorName}</h3>
             <p className="accessible-meta">{tribute.relationship}</p>
-            <p>{tribute.bodyText}</p>
+            <p style={{ whiteSpace: "pre-line" }}>{tribute.bodyText}</p>
           </article>
         ))}
       </section>
