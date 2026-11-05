@@ -23,6 +23,7 @@ type FolioPage = {
   title: string;
   subtitle: string;
   content: React.ReactNode;
+  isFullPageMedia?: boolean;
 };
 
 function HymnContent({ hymn }: { hymn: Hymn }) {
@@ -138,32 +139,30 @@ function ServiceContent({ item }: { item: ServiceItem }) {
   );
 }
 
-function FlierContent() {
+function FlierFullPageContent() {
   return (
-    <div className="service-content flier-content" style={{ padding: "4px 2px" }}>
-      <span className="folio-overline">IN LOVING MEMORY</span>
-      <h3 lang="yo" style={{ margin: "6px 0 10px" }}>Àwòrán Ìrántí Olóògbé</h3>
-      <div
+    <div
+      style={{
+        position: "relative",
+        width: "100%",
+        height: "100%",
+        minHeight: 0,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <Image
+        src="/images/memorial/flier.jpeg"
+        alt="Celebration of Life Memorial Flier"
+        fill
+        priority
+        sizes="(max-width: 800px) 95vw, 680px"
         style={{
-          position: "relative",
-          width: "100%",
-          maxWidth: "420px",
-          height: "430px",
-          margin: "0 auto",
-          borderRadius: "4px",
-          overflow: "hidden",
-          border: "1px solid rgba(155, 120, 58, 0.35)",
-          boxShadow: "0 8px 24px rgba(0, 0, 0, 0.15)",
+          objectFit: "contain",
+          borderRadius: "3px",
         }}
-      >
-        <Image
-          src="/images/memorial/flier.jpeg"
-          alt="Celebration of Life Flier of Pa Bayo Emmanuel Adebimpe"
-          fill
-          sizes="(max-width: 800px) 90vw, 420px"
-          style={{ objectFit: "contain" }}
-        />
-      </div>
+      />
     </div>
   );
 }
@@ -456,14 +455,16 @@ export default function BookFolio() {
     const addService = (items: ServiceItem[], partTitle: string) => {
       for (const item of items) {
         const hymn = item.hymnId ? getHymn(item.hymnId) : undefined;
+        const isFlier = item.type === "flier";
+
         const content = hymn ? (
           <HymnContent hymn={hymn} />
         ) : item.type === "biography" ? (
           <BiographyContent />
         ) : item.type === "favourite_songs" ? (
           <FavouriteSongsContent />
-        ) : item.type === "flier" ? (
-          <FlierContent />
+        ) : isFlier ? (
+          <FlierFullPageContent />
         ) : (
           <ServiceContent item={item} />
         );
@@ -472,8 +473,9 @@ export default function BookFolio() {
           id: item.id,
           eyebrow: partTitle,
           title: item.title,
-          subtitle: item.type === "flier" ? "The Adebimpe Family" : `Led by ${item.anchor}`,
+          subtitle: isFlier ? "The Adebimpe Family" : `Led by ${item.anchor}`,
           content,
+          isFullPageMedia: isFlier,
         });
       }
     };
@@ -721,19 +723,52 @@ export default function BookFolio() {
           </div>
 
           <article className="book-page" key={active.id}>
-            <div className="page-inner">
-              <div className="page-topline">
-                <span>✧</span>
-                <span>{active.eyebrow}</span>
-                <span>✧</span>
-              </div>
+            <div
+              className="page-inner"
+              style={
+                active.isFullPageMedia
+                  ? {
+                      padding: "10px 14px 10px",
+                      display: "flex",
+                      flexDirection: "column",
+                      height: "100%",
+                    }
+                  : undefined
+              }
+            >
+              {!active.isFullPageMedia && (
+                <>
+                  <div className="page-topline">
+                    <span>✧</span>
+                    <span>{active.eyebrow}</span>
+                    <span>✧</span>
+                  </div>
 
-              <div className="page-heading">
-                <h3>{active.title}</h3>
-                <p>{active.subtitle}</p>
-              </div>
+                  <div className="page-heading">
+                    <h3>{active.title}</h3>
+                    <p>{active.subtitle}</p>
+                  </div>
+                </>
+              )}
 
-              <div className="page-content">{active.content}</div>
+              <div
+                className="page-content"
+                style={
+                  active.isFullPageMedia
+                    ? {
+                        flex: "1 1 auto",
+                        display: "flex",
+                        position: "relative",
+                        width: "100%",
+                        height: "100%",
+                        minHeight: 0,
+                        overflow: "hidden",
+                      }
+                    : undefined
+                }
+              >
+                {active.content}
+              </div>
 
               <div className="page-footer">
                 <span>IN LOVING MEMORY OF {memorial.displayName.toUpperCase()}</span>
