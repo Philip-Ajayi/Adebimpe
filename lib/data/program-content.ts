@@ -1174,20 +1174,20 @@ export const tributes: TributeItem[] = [
     isMock: false,
   },
   {
-    id: "tribute-tosin",
-    authorName: "Tosin Adebimpe",
-    relationship: "Daughter / Child",
-    bodyText:
-      "It still feels unreal that you are gone. When I visited you at the hospital after work that evening, I didn't even know it would be our last contact. You reassured me with your gentle smile and convincing humor that everything would be alright. You said it was just a minor discomfort and that you only came in to rest. I never knew the unease would become your final rest. I left that room believing with all my heart that everything would be fine, promising to bring food the next day. I never knew our conversation would be our last, or that I would be the last person to see you alive. When the rude call came at 11:00 PM about your departure, it was unbelievable, but I am grateful for the privilege of that last sight. It was a memory filled with peace, an experience I will forever cherish. Thank you for teaching me discipline and how to live a principled life. Your love will guide me forever. Rest peacefully in God's arms until we meet again. As you fondly call me, TOSIN.",
-    date: "6 November 2026",
-    isMock: false,
-  },
-  {
     id: "tribute-adenike",
     authorName: "Adenike Taiwo",
     relationship: "Daughter",
     bodyText:
       "Fading away like the stars of the morning,\nLosing their light in the glorious sun\nThus would we pass from the earth and its toiling\nOnly remembered by what we have done.\n\nIf you unite with your granddaughters, help me tell the three of them I am missing them.",
+    date: "6 November 2026",
+    isMock: false,
+  },
+  {
+    id: "tribute-tosin",
+    authorName: "Tosin Adebimpe",
+    relationship: "Daughter / Child",
+    bodyText:
+      "It still feels unreal that you are gone. When I visited you at the hospital after work that evening, I didn't even know it would be our last contact. You reassured me with your gentle smile and convincing humor that everything would be alright. You said it was just a minor discomfort and that you only came in to rest. I never knew the unease would become your final rest. I left that room believing with all my heart that everything would be fine, promising to bring food the next day. I never knew our conversation would be our last, or that I would be the last person to see you alive. When the rude call came at 11:00 PM about your departure, it was unbelievable, but I am grateful for the privilege of that last sight. It was a memory filled with peace, an experience I will forever cherish. Thank you for teaching me discipline and how to live a principled life. Your love will guide me forever. Rest peacefully in God's arms until we meet again. As you fondly call me, TOSIN.",
     date: "6 November 2026",
     isMock: false,
   },
